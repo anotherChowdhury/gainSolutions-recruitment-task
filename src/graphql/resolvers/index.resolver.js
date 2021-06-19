@@ -6,7 +6,7 @@ export default {
     subjects: StudentResolver.getAllSubjectByAStudent,
   },
 
-  subject: {
+  Subject: {
     students: SubjectResolver.getAllStudetsOfASubject,
   },
 
@@ -14,7 +14,7 @@ export default {
     getSubject: SubjectResolver.getSubject,
     getSubjects: SubjectResolver.getSubjects,
     getStudent: StudentResolver.getStudent,
-    getStudets: StudentResolver.getStudents,
+    getStudents: StudentResolver.getStudents,
   },
 
   Mutation: {
