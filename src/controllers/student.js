@@ -1,7 +1,7 @@
 import BaseController from './baseController'
 
 class StudentController extends BaseController {
-  constructor(_model) {
+  constructor(model) {
     super(model)
     this._model = model
   }
@@ -38,7 +38,7 @@ class StudentController extends BaseController {
     return this.model.find({}).populate('subjects')
   }
 
-  async getallSubjectsByAStudent(studentId) {
+  async getallSubjectsOfAStudent(studentId) {
     const { subjects } = await this._model
       .findById(studentId)
       .populate('subjects')

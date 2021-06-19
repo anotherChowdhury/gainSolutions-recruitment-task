@@ -1,7 +1,7 @@
 import BaseController from './baseController'
 
 class SubjectController extends BaseController {
-  constructor() {
+  constructor(model) {
     super(model)
     this._model = model
   }
