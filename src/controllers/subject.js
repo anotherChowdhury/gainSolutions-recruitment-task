@@ -1,11 +1,9 @@
-import subject from '../models/subject'
-import Subject from '../models/subject'
 import BaseController from './baseController'
 
 class SubjectController extends BaseController {
   constructor() {
-    super(Subject)
-    this._model = subject
+    super(model)
+    this._model = model
   }
 
   async addStudents(subjectId, studentIdList) {
@@ -22,7 +20,7 @@ class SubjectController extends BaseController {
     )
   }
 
-  async removeStudent(subjectId, studnetId) {
+  async removeStudentFromSubject(subjectId, studnetId) {
     return this._model.updateOne(
       subjectId,
       {
@@ -30,6 +28,13 @@ class SubjectController extends BaseController {
       },
       { new: true }
     )
+  }
+
+  async getallStudentsOfASubject(subjectId) {
+    const { students } = await this._model
+      .findById(subjectId)
+      .populate('students')
+    return students
   }
 }
 
