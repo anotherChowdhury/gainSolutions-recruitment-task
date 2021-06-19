@@ -1,12 +1,12 @@
 import BaseController from './baseController'
-import Student from '../models/student'
+
 class StudentController extends BaseController {
-  constructor() {
-    super(Student)
-    this._model = Student
+  constructor(_model) {
+    super(model)
+    this._model = model
   }
 
-  async addSubjects(studentId, subjectsIdList) {
+  addSubjects(studentId, subjectsIdList) {
     return this._model.findByIdAndUpdate(
       studentId,
       {
@@ -20,7 +20,7 @@ class StudentController extends BaseController {
     )
   }
 
-  async removeSubjectFromStudent(studentId, subjectId) {
+  removeSubjectFromStudent(studentId, subjectId) {
     return this._model.updateOne(
       studentId,
       {
@@ -32,6 +32,17 @@ class StudentController extends BaseController {
         new: true,
       }
     )
+  }
+
+  getAll() {
+    return this.model.find({}).populate('subjects')
+  }
+
+  async getallSubjectsByAStudent(studentId) {
+    const { subjects } = await this._model
+      .findById(studentId)
+      .populate('subjects')
+    return subjects
   }
 }
 
