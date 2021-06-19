@@ -11,6 +11,7 @@
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": "error",
-    "max-len": ["warn", { "code": 80, "comments": 150 }]
+    "max-len": ["warn", { "code": 80, "comments": 150 }],
+    "semi": "off"
   }
 }
