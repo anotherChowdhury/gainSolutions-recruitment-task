@@ -1,8 +1,10 @@
-import { StudentController, SubjectController } from '../../server'
+import {
+  studentController as StudentController,
+  subjectController as SubjectController,
+} from '../../server'
 
 export default {
-  getStudents: () => StudentController.get({}),
-
+  getStudents: async () => StudentController.get({}),
   getStudent: (_, { studentId }) => StudentController.getById(studentId),
 
   getAllSubjectByAStudent: (student, {}) =>

@@ -1,4 +1,7 @@
-import { StudentController, SubjectController } from '../../server'
+import {
+  studentController as StudentController,
+  subjectController as SubjectController,
+} from '../../server'
 
 export default {
   getSubjects: () => SubjectController.get({}),
