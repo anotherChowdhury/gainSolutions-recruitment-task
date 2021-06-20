@@ -22,7 +22,7 @@ class StudentController extends BaseController {
 
   async removeSubjectFromStudent(studentId, subjectId) {
     return this._model.updateOne(
-      studentId,
+      { _id: studentId },
       {
         $pull: {
           subjects: subjectId,
