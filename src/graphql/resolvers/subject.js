@@ -6,8 +6,10 @@ import {
 export default {
   getSubjects: () => SubjectController.get({}),
 
-  getAllStudetsOfASubject: (subject, {}) =>
-    SubjectController.getAllStudetsOfASubject(subject.id),
+  getAllStudentsOfASubject: async (subject, {}) => {
+    console.log(subject)
+    return await SubjectController.getAllStudentsOfASubject(subject.id)
+  },
 
   getSubject: (_, { subjectId }) => SubjectController.getById(subjectId),
 
