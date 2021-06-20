@@ -23,5 +23,6 @@ export default {
     addSubjectsToStudent: StudentResolver.addSubjectsToStudent,
     addStudentsToSubject: SubjectResolver.addStudentsToSubject,
     removeSubjectFromStudent: StudentResolver.removeSubjectFromStudent,
+    removeStudentFromSubject: SubjectResolver.removeStudentFromSubject,
   },
 }
