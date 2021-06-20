@@ -13,10 +13,6 @@ import cors from 'cors'
 const studentController = new StudentController(Student)
 const subjectController = new SubjectController(Subject)
 
-connectToDatabase()
-const app = express()
-app.use(cors())
-
 const Query = `
   type Query {
     _empty: String
@@ -32,6 +28,17 @@ const Mutation = `
 const apolloServer = new ApolloServer({
   typeDefs: [Query, Mutation, StudentTypeDefs, SubjectTypeDefs],
   resolvers: IndexResolver,
+})
+
+connectToDatabase()
+const app = express()
+app.use(cors())
+app.use('/graphql', (req, res, next) => {
+  console.log(req.method)
+  console.log(req.url)
+  console.log(req.body.query)
+  console.log(req.body.variables)
+  return next()
 })
 
 apolloServer.applyMiddleware({ app })
