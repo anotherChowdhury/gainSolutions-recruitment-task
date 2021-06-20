@@ -8,6 +8,7 @@ import { ApolloServer } from 'apollo-server-express'
 import StudentTypeDefs from './graphql/types/student'
 import SubjectTypeDefs from './graphql/types/subject'
 import IndexResolver from './graphql/resolvers/index.resolver'
+import cors from 'cors'
 
 const studentController = new StudentController(Student)
 const subjectController = new SubjectController(Subject)
