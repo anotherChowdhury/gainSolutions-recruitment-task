@@ -6,7 +6,7 @@ class StudentController extends BaseController {
     this._model = model
   }
 
-  addSubjects(studentId, subjectsIdList) {
+  async addSubjects(studentId, subjectsIdList) {
     return this._model.findByIdAndUpdate(
       studentId,
       {
@@ -20,7 +20,7 @@ class StudentController extends BaseController {
     )
   }
 
-  removeSubjectFromStudent(studentId, subjectId) {
+  async removeSubjectFromStudent(studentId, subjectId) {
     return this._model.updateOne(
       studentId,
       {
@@ -34,11 +34,11 @@ class StudentController extends BaseController {
     )
   }
 
-  getAll() {
+  async getAll() {
     return this.model.find({}).populate('subjects')
   }
 
-  async getallSubjectsOfAStudent(studentId) {
+  async getAllSubjectsOfAStudent(studentId) {
     const { subjects } = await this._model
       .findById(studentId)
       .populate('subjects')
