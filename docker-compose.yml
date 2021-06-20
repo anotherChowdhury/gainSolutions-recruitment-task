@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  db:
+    container_name: RecruitmentGainSolutions
+    image: mongo:latest
+    restart: always
+    volumes:
+      - ./class:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=GainSolutions
+    ports:
+      - 27017:27017
