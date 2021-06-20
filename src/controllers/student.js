@@ -21,8 +21,9 @@ class StudentController extends BaseController {
   }
 
   async removeSubjectFromStudent(studentId, subjectId) {
-    return this._model.updateOne(
-      { _id: studentId },
+    console.log('In removeSubjectFromStudent')
+    return this._model.findByIdAndUpdate(
+      studentId,
       {
         $pull: {
           subjects: subjectId,
@@ -40,9 +41,11 @@ class StudentController extends BaseController {
 
   async getAllSubjectsOfAStudent(studentId) {
     console.log('In student controller fucntion ')
+    console.log(studentId)
     const { subjects } = await this._model
       .findById(studentId)
       .populate('subjects')
+    console.log(subjects)
     return subjects
   }
 }
