@@ -16,6 +16,7 @@ const StudentTypeDefs = `
     createStudent(name:String!,email:String!,birthDate:String!,subjects:[ID]):Student
     updateStudent(studentId:ID!,name:String,email:String):Student
     addSubjectsToStudent(studentId:ID!,subjectIds:[ID!]!):Student
+    removeSubjectFromStudent(studentId:ID!,subjectId:ID!):Student
   }
 `
 

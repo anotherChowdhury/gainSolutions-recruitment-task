@@ -15,6 +15,7 @@ const SubjectTypeDefs = `
     createSubject(name:String!,students:[ID]):Subject
     updateSubject(subjectId:ID!,name:String,students:[ID]):Subject
     addStudentsToSubject(subjectId:ID!,studentIds:[ID!]!):Subject
+    removeStudentFromSubject(subjectId:ID!,studentIds:ID!):Subject
   }
 `
 
