@@ -29,8 +29,10 @@ export default {
 
   removeStudentFromSubject: async (_, { studentId, subjectId }) => {
     await StudentController.removeSubjectFromStudent(studentId, subjectId)
-    await SubjectController.removeStudentFromSubject(subjectId, studentId)
-    return true
+    return await SubjectController.removeStudentFromSubject(
+      subjectId,
+      studentId
+    )
   },
 
   deleteSubject: async (_, { subjectId }) => {

@@ -23,9 +23,11 @@ export default {
   },
 
   removeSubjectFromStudent: async (_, { studentId, subjectId }) => {
-    await StudentController.removeSubjectFromStudent(studentId, subjectId)
     await SubjectController.removeStudentFromSubject(subjectId, studentId)
-    return true
+    return await StudentController.removeSubjectFromStudent(
+      studentId,
+      subjectId
+    )
   },
 
   deleteStudent: async (_, { studentId }) => {
@@ -33,7 +35,7 @@ export default {
     if (!student) return 'No Students Found'
     if (student.subjects.length > 0)
       for (const subId of student.subjects) {
-        SubjectController.removeStudentFromSubject(subId, studentId)
+        await SubjectController.removeStudentFromSubject(subId, studentId)
       }
     return StudentController.deleteById(studentId)
   },
