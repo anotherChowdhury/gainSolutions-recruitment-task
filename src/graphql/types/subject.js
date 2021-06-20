@@ -6,7 +6,7 @@ const SubjectTypeDefs = `
   }
 
   extend type Query {
-    getSubjects:[Subjects]
+    getSubjects:[Subject]
     getSubject(id:ID!):Subject
     getSubjectByName(name:String!):Subject
   }
@@ -14,6 +14,7 @@ const SubjectTypeDefs = `
   extend type Mutation {
     createSubject(name:String!,students:[ID]):Subject
     updateSubject(subjectId:ID!,name:String,students:[ID]):Subject
+    addStudentToSubject(subjectId:ID!,studentId:ID!):Subject
   }
 `
 
