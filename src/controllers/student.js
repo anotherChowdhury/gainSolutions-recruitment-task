@@ -39,6 +39,7 @@ class StudentController extends BaseController {
   }
 
   async getAllSubjectsOfAStudent(studentId) {
+    console.log('In student controller fucntion ')
     const { subjects } = await this._model
       .findById(studentId)
       .populate('subjects')
