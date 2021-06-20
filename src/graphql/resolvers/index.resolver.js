@@ -7,7 +7,7 @@ export default {
   },
 
   Subject: {
-    students: SubjectResolver.getAllStudetsOfASubject,
+    students: SubjectResolver.getAllStudentsOfASubject,
   },
 
   Query: {
@@ -20,5 +20,8 @@ export default {
   Mutation: {
     createStudent: StudentResolver.createStudent,
     createSubject: SubjectResolver.createSubject,
+    addSubjectsToStudent: StudentResolver.addSubjectsToStudent,
+    addStudentsToSubject: SubjectResolver.addStudentsToSubject,
+    removeSubjectFromStudent: StudentResolver.removeSubjectFromStudent,
   },
 }
