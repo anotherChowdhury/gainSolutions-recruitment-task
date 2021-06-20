@@ -24,6 +24,7 @@ class BaseController {
   }
 
   async get(conditions) {
+    console.log('In base controller get function')
     return this._model.find(conditions)
   }
 }
