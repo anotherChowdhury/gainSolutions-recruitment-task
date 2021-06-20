@@ -14,7 +14,7 @@ const SubjectTypeDefs = `
   extend type Mutation {
     createSubject(name:String!,students:[ID]):Subject
     updateSubject(subjectId:ID!,name:String,students:[ID]):Subject
-    addStudentToSubject(subjectId:ID!,studentId:ID!):Subject
+    addStudentsToSubject(subjectId:ID!,studentIds:[ID!]!):Subject
   }
 `
 
