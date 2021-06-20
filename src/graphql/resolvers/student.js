@@ -4,21 +4,23 @@ import {
 } from '../../server'
 
 export default {
-  getStudents: async () => StudentController.get({}),
+  getStudents: () => StudentController.get({}),
   getStudent: (_, { studentId }) => StudentController.getById(studentId),
 
   getAllSubjectByAStudent: (student, {}) =>
-    StudentController.getAllSubjectByAStudent(student.id),
+    StudentController.getAllSubjectsOfAStudent(student.id),
 
   createStudent: (_, { name, email, birthDate, subjects }) =>
     StudentController.add({ name, email, birthDate, subjects }),
 
-  addSubjectToStudent: async (_, { studentId, subjects }) => {
-    const added = await StudentController.addSubjects(studentId, subjects)
-    for (const subId of subjects) {
+  addSubjectsToStudent: async (_, { studentId, subjectIds }) => {
+    console.log('here in student resolver')
+    const added = await StudentController.addSubjects(studentId, subjectIds)
+    console.log(added)
+    for (const subId of subjectIds) {
       SubjectController.addStudents(subId, [studentId])
     }
-    return true
+    return added
   },
 
   removeSubjectFromStudent: async (_, { studentId, subjectId }) => {
