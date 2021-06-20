@@ -8,7 +8,7 @@ class SubjectController extends BaseController {
 
   async addStudents(subjectId, studentIdList) {
     console.log('Here')
-    return this._model.updateOne(
+    return this._model.findByIdAndUpdate(
       { _id: subjectId },
       {
         $addToSet: {
@@ -22,8 +22,8 @@ class SubjectController extends BaseController {
   }
 
   async removeStudentFromSubject(subjectId, studnetId) {
-    return this._model.updateOne(
-      { _id: subjectId },
+    return this._model.findByIdAndUpdate(
+      subjectId,
       {
         $pull: { students: studnetId },
       },
